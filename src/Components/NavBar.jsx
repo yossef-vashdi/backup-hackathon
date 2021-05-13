@@ -36,7 +36,7 @@ class NavBar extends React.Component {
             <Link className="nav-link text-dark" to="/LiveAuctioneers">
               <span>Auctioneers</span>
             </Link>
-            <Link className="nav-link text-dark" to="/three">
+            <Link className="nav-link text-dark" to="/Blog">
               <span>Blog</span>
             </Link>
 
