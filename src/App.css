@@ -7,3 +7,9 @@ body {
 
   font-size: 18px;
 }
+
+#construction {
+  display: block;
+  width: 60% !important;
+  margin: auto;
+}

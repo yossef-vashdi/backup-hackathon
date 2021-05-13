@@ -1,6 +1,6 @@
 // import axios from "axios";
 // import FormData from "form-data";
-// const BaseUrl = 'http://localhost:5000';
+// const BaseUrl = "http://localhost:5000";
 
 export async function getPictureData(pictureName) {
   const pictureData = jsonMock.find((e) => e.fileName === pictureName);

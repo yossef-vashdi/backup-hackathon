@@ -1,6 +1,6 @@
 import React from "react";
 
-const LiveAuctioneers = (props) => {
+const Blog = (props) => {
   return (
     <div>
       <img
@@ -12,4 +12,4 @@ const LiveAuctioneers = (props) => {
   );
 };
 
-export default LiveAuctioneers;
+export default Blog;
