@@ -14,7 +14,7 @@ export async function createPicture(picture) {
   const form = new FormData();
   form.append("picture", picture);
   try {
-    const response = await axios.post(BaseUrl + "/test_res", form, {
+    const response = await axios.post(BaseUrl + "/predict_churn_bulk", form, {
       headers: { "Content-Type": "multipart/form-data" },
     });
     if (response) {
