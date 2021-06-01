@@ -1,6 +1,6 @@
-// import axios from "axios";
-// import FormData from "form-data";
-// const BaseUrl = "http://localhost:5000";
+import axios from "axios";
+import FormData from "form-data";
+const BaseUrl = "http://localhost:5000";
 
 export async function getPictureData(pictureName) {
   const pictureData = jsonMock.find((e) => e.fileName === pictureName);
@@ -11,11 +11,22 @@ export async function getPictureData(pictureName) {
 export async function createPicture(picture) {
   console.log("we need a real connection to the backend");
   const pictureData = await getPictureData(picture.name);
-  return pictureData;
-  //const form = new FormData();
-  //form.append('picture', picture);
-  // const response = await axios.post(BaseUrl + '/', form, { headers: {'Content-Type': 'multipart/form-data'}});
+  const form = new FormData();
+  form.append("picture", picture);
+  try {
+    const response = await axios.post(BaseUrl + "/", form, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    if (response) {
+      const data = await response.json();
+      console.log(data);
+    }
+  } catch (err) {
+    console.log(err);
+  }
+
   // return response.data;
+  return pictureData;
 }
 export async function login(email, password) {
   console.log(email, password);
