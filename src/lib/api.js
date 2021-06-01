@@ -18,6 +18,8 @@ export async function createPicture(picture) {
       headers: { "Content-Type": "multipart/form-data" },
     });
     if (response) {
+      console.log(response);
+
       const data = await response.json();
       console.log(data);
     }
