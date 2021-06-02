@@ -1,13 +1,18 @@
 import CategoryInfo from "./CategoryInfo";
+import ResponseChart from "./ResponseChart";
 
 const ResponseInformation = (props) => {
-  console.log(props.response)
+  let response = {};
+  if (!props.location) response = props.response;
+  else response = props.location.response;
+  //   console.log("props location");
+  //   console.log(props.location);
   const infoAray = [];
   const topicAray = [];
 
   let item = "";
-  for (item in props.response) {
-    topicAray.push(`${item} ${props.response[item] * 100}  %`);
+  for (item in response) {
+    topicAray.push(`${item} ${response[item] * 100}  %`);
     let match = "";
     for (match in CategoryInfo) {
       if (match === item) {
@@ -26,6 +31,7 @@ const ResponseInformation = (props) => {
           </div>
         );
       })}
+      <ResponseChart response={response} />
     </div>
   );
 };

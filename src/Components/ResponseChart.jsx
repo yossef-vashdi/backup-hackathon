@@ -12,6 +12,7 @@ class ResponseChart extends React.Component {
 
   componentDidMount() {
     console.log("this is the props", this.props.response);
+
     const category = [];
     const presantage = [];
     //   const topicAray = [];
@@ -30,7 +31,7 @@ class ResponseChart extends React.Component {
     this.setState({ category, presantage });
   }
   render() {
-    console.log(this.props.response)
+    console.log(this.props.response);
     const data = {
       labels: this.state.category,
       datasets: [

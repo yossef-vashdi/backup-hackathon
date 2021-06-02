@@ -1,8 +1,8 @@
 import React from "react";
-import ResponseInformation from "./ResponseInformation";
-import ResponseChart from "./ResponseChart";
-import { Link } from "react-router-dom";
-
+// import ResponseInformation from "./ResponseInformation";
+// import ResponseChart from "./ResponseChart";
+// import { Link } from "react-router-dom";
+import ResponseFunc from "./ResponseFunc";
 
 class ResponseItem extends React.Component {
   constructor(props) {
@@ -37,15 +37,8 @@ class ResponseItem extends React.Component {
         
           "false"
     </Link> */}
- 
-        <Link to={{ pathname: this.props.path, response: this.props.response }}
-        >
-          <div>Hiiiiiiiiiiikkkkkkkkkkk</div>
-          </Link> 
-          <ResponseInformation response={this.props.response} />
 
-          <ResponseChart response={this.props.response} />
-
+        <ResponseFunc response={this.props.response} path="/details" />
       </div>
     );
   }

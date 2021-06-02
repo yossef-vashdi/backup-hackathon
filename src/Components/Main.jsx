@@ -6,7 +6,7 @@ import Tiles from "./Tiles/Tiles";
 import LiveAuctioneers from "./LiveAuctioneers/LiveAuctioneers";
 import Blog from "./blog/Blog";
 import ResponseInformation from "./ResponseInformation";
-
+import ResponseChart from "./ResponseChart";
 
 const Main = () => {
   return (
@@ -17,7 +17,7 @@ const Main = () => {
         <Route path="/LiveAuctioneers" component={LiveAuctioneers} />
         <Route path="/Blog" component={Blog} />
         <Route exact path="/" component={Home} />
-        <Route path="/details" component={ResponseInformation}/>
+        <Route path="/details" component={ResponseInformation} />
       </Switch>
     </Router>
   );
