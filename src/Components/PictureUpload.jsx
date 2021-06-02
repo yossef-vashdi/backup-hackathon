@@ -2,8 +2,15 @@ import React from "react";
 import { useState } from "react";
 import Modal from "react-modal";
 import { createPicture } from "../lib/api";
+import ResponseItem from "./ResponseItem";
 // import { Link } from "react-router-dom";
-
+const response = {
+  drawings: 0.8,
+  engraving: 0.5,
+  iconography: 0.3,
+  painting: 0.1,
+  sculpture: 0.2,
+};
 const PictureUpload = () => {
   const [showValidationError, setShowValidationError] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -104,6 +111,7 @@ const PictureUpload = () => {
           </form>
         </div>
       </div>
+      <ResponseItem response={response} />
       <ul className=" list-unstyled">
         {picturesData &&
           picturesData.map((item) => (

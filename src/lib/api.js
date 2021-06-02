@@ -3,6 +3,14 @@ import FormData from "form-data";
 const BaseUrl = "http://localhost:5000";
 
 export async function getPictureData(pictureName) {
+  //
+  let item = "";
+  for (item in jsonMock2) {
+    console.log(item);
+  }
+  // const pictureData2 = jsonMock2;
+
+  //
   const pictureData = jsonMock.find((e) => e.fileName === pictureName);
   if (!pictureData) return jsonMock[Math.floor(Math.random() * 7)];
   return pictureData;
@@ -19,16 +27,18 @@ export async function createPicture(picture) {
     });
     if (response) {
       console.log(response);
-
+      console.log(response.data);
       const data = await response.json();
       console.log(data);
     }
   } catch (err) {
-    console.log(err);
+    console.log("I have an error, no connection to serrver");
+    return pictureData;
   }
-
+  console.log("respond ended without error");
+  return;
   // return response.data;
-  return pictureData;
+  // return pictureData;
 }
 export async function login(email, password) {
   console.log(email, password);
@@ -47,6 +57,25 @@ export async function signup(
   // const response = await axios.post(BaseUrl + '/users', { email, password, firstName, lastName, phoneNumber });
   // return response.data;
 }
+
+const jsonMock2 = [
+  {
+    drawings: 0.8,
+    engraving: 0.5,
+    iconography: 0.3,
+    painting: 0.1,
+    sculpture: 0.2,
+  },
+  {
+    drawings: 0.5,
+    engraving: 0.6,
+  },
+  {
+    painting: 0.9,
+    sculpture: 0.7,
+  },
+];
+// drawing 80% engraving 50%
 
 const jsonMock = [
   {
