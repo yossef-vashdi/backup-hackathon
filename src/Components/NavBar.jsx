@@ -27,7 +27,7 @@ class NavBar extends React.Component {
           <nav className="d-flex navbar fixed-top shadow bg-white rounded-2 w-100 ">
             <Link className="mx-4 nav-link text-dark" to="/">
               <span className="material-icons d-inline-block align-text-top ">
-                home
+              brush
               </span>
             </Link>
             <Link className="nav-link text-dark" to="/Tiles">
