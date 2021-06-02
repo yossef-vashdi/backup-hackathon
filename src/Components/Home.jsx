@@ -5,7 +5,14 @@ import PictureUpload from "./PictureUpload";
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      expand: false,
+    };
+  }
+  howItWorks() {
+    this.setState((prevState) => {
+      return { expand: !prevState.expand };
+    });
   }
   render() {
     return (
@@ -25,6 +32,22 @@ class Home extends React.Component {
                   {" "}
                   please share with us, and we will tell you{" "}
                 </p>
+                <div>
+                  <p onClick={() => this.howItWorks()}>
+                    -- press here to hear more about our feedback --
+                  </p>
+                  {this.state.expand && (
+                    <p>
+                      our server will analyze your creation (AI) and will
+                      estimate it's match to different categories (drawings,
+                      engraving, iconography, painting, sculpture). we inted to
+                      expand our feedback method to include more aspects as well
+                      as giving you the opportunity to share your creation and
+                      recieve feedback from other users, professional and
+                      amateurs alike
+                    </p>
+                  )}
+                </div>
               </div>
 
               <div className="">

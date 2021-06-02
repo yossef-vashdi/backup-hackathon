@@ -1,5 +1,6 @@
 import React from "react";
 import ResponseInformation from "./ResponseInformation";
+import ResponseChart from "./ResponseChart";
 
 class ResponseItem extends React.Component {
   constructor(props) {
@@ -14,8 +15,14 @@ class ResponseItem extends React.Component {
     });
   }
   componentDidMount() {
-    if (this.props.response) {
-      console.log(this.props.response);
+    // if (this.props.response) {
+    //   console.log(this.props.response);
+    // }
+    this.setState({ moreInformation: false });
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.response !== this.props.response) {
+      this.setState({ moreInformation: false });
     }
   }
   render() {
@@ -24,7 +31,7 @@ class ResponseItem extends React.Component {
         {this.state.moreInformation ? (
           <ResponseInformation response={this.props.response} />
         ) : (
-          "false"
+          <ResponseChart response={this.props.response} />
         )}
       </div>
     );

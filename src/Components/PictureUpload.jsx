@@ -4,37 +4,39 @@ import Modal from "react-modal";
 import { createPicture } from "../lib/api";
 import ResponseItem from "./ResponseItem";
 // import { Link } from "react-router-dom";
-const response = {
-  drawings: 0.8,
-  engraving: 0.5,
-  iconography: 0.3,
-  painting: 0.1,
-  sculpture: 0.2,
-};
+// const testing = {
+//   drawings: 0.8,
+//   engraving: 0.5,
+//   iconography: 0.3,
+//   painting: 0.1,
+//   sculpture: 0.2,
+// };
+
 const PictureUpload = () => {
   const [showValidationError, setShowValidationError] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [picture, setPicture] = useState();
-  const [picturesData, setPicturesData] = useState([]);
+  // const [picturesData, setPicturesData] = useState([]);
+  const [response, setResponse] = useState(); // yossi added
 
-  async function addNewPicture(picture) {
-    try {
-      const data = await createPicture(picture);
-      if (data && !isPictureAlreadyExists(picturesData, data.fileName)) {
-        const arr = [data, ...picturesData];
-        setPicturesData(arr);
-      } else {
-        setModalIsOpen(false);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  // async function addNewPicture(picture) {
+  //   try {
+  //     const data = await createPicture(picture);
+  //     if (data && !isPictureAlreadyExists(picturesData, data.fileName)) {
+  //       const arr = [data, ...picturesData];
+  //       setPicturesData(arr);
+  //     } else {
+  //       setModalIsOpen(false);
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
 
-  function isPictureAlreadyExists(picturesData, pictureName) {
-    const data = picturesData.find((e) => e.fileName === pictureName);
-    return data ? true : false;
-  }
+  // function isPictureAlreadyExists(picturesData, pictureName) {
+  //   const data = picturesData.find((e) => e.fileName === pictureName);
+  //   return data ? true : false;
+  // }
 
   function closeButton() {
     setShowValidationError(false);
@@ -50,7 +52,11 @@ const PictureUpload = () => {
     if (picture) {
       try {
         setShowValidationError(false);
-        await addNewPicture(picture);
+        // await addNewPicture(picture);
+        // yossi changes
+        const data = await createPicture(picture);
+        setResponse(data);
+        //till here
         setModalIsOpen(true);
       } catch (err) {
         alert(err);
@@ -111,8 +117,8 @@ const PictureUpload = () => {
           </form>
         </div>
       </div>
-      <ResponseItem response={response} />
-      <ul className=" list-unstyled">
+      {response && <ResponseItem response={response} />}
+      {/* <ul className=" list-unstyled">
         {picturesData &&
           picturesData.map((item) => (
             <li className=" ">
@@ -126,7 +132,7 @@ const PictureUpload = () => {
                       height="300"
                     />
                   </div>
-                  {/* <p>{item.id}</p> */}
+              
                   <div className="col-md-8">
                     <div className="card-body">
                       <h1 className="card-title">{item.title}</h1>
@@ -137,7 +143,7 @@ const PictureUpload = () => {
               </div>
             </li>
           ))}
-      </ul>
+      </ul> */}
 
       <Modal
         isOpen={modalIsOpen}

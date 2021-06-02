@@ -18,9 +18,11 @@ export async function getPictureData(pictureName) {
 
 export async function createPicture(picture) {
   console.log("we need a real connection to the backend");
-  const pictureData = await getPictureData(picture.name);
+  // const pictureData = await getPictureData(picture.name);
   const form = new FormData();
   form.append("picture", picture);
+  console.log("show us what you send to the server");
+  console.log(form);
   try {
     const response = await axios.post(BaseUrl + "/test_res", form, {
       headers: { "Content-Type": "multipart/form-data" },
@@ -28,12 +30,25 @@ export async function createPicture(picture) {
     if (response) {
       console.log(response);
       console.log(response.data);
-      const data = await response.json();
-      console.log(data);
+      // const data = await response.json();
+      // console.log(data);
+      if (response.data.Object) {
+        console.log("the first one is correct response.data.Object");
+        return response.data.Object;
+      }
+      if (response.data.Object) {
+        console.log("the second one is correct response.data.object");
+        return response.data.object;
+      }
+      if (response.data) {
+        console.log("the third one is correct response.data");
+        return response.data;
+      }
+      console.log("no match to any of the data sets");
     }
   } catch (err) {
-    console.log("I have an error, no connection to serrver");
-    return pictureData;
+    console.log("I have an error, no connection to server");
+    return response[Math.floor(Math.random() * response.length)];
   }
   console.log("respond ended without error");
   return;
@@ -57,6 +72,25 @@ export async function signup(
   // const response = await axios.post(BaseUrl + '/users', { email, password, firstName, lastName, phoneNumber });
   // return response.data;
 }
+
+const response = [
+  {
+    drawings: 0.8,
+    engraving: 0.5,
+    iconography: 0.3,
+    painting: 0.1,
+    sculpture: 0.2,
+  },
+  {
+    painting: 0.1,
+    sculpture: 0.2,
+  },
+  {
+    engraving: 0.7,
+    iconography: 0.9,
+    painting: 0.1,
+  },
+];
 
 const jsonMock2 = [
   {
