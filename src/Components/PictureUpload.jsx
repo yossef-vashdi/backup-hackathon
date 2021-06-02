@@ -117,8 +117,10 @@ const PictureUpload = () => {
           </form>
         </div>
       </div>
-      {response && <ResponseItem response={response} />}
+      {response && <ResponseItem response={response}  path="/details" />}
       {/* <ul className=" list-unstyled">
+      <ResponseItem response={response} path="/details" />
+      <ul className=" list-unstyled">
         {picturesData &&
           picturesData.map((item) => (
             <li className=" ">

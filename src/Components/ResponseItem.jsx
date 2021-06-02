@@ -1,6 +1,8 @@
 import React from "react";
 import ResponseInformation from "./ResponseInformation";
 import ResponseChart from "./ResponseChart";
+import { Link } from "react-router-dom";
+
 
 class ResponseItem extends React.Component {
   constructor(props) {
@@ -9,11 +11,11 @@ class ResponseItem extends React.Component {
       moreInformation: false,
     };
   }
-  addInformation() {
-    this.setState((prevState) => {
-      return { moreInformation: !prevState.moreInformation };
-    });
-  }
+  // addInformation() {
+  //   this.setState((prevState) => {
+  //     return { moreInformation: !prevState.moreInformation };
+  //   });
+  // }
   componentDidMount() {
     // if (this.props.response) {
     //   console.log(this.props.response);
@@ -27,12 +29,23 @@ class ResponseItem extends React.Component {
   }
   render() {
     return (
-      <div onClick={() => this.addInformation()}>
-        {this.state.moreInformation ? (
+      <div>
+        {/* <Link className="text-decoration-none text-dark" 
+        to={{pathname: this.props.path, response: this.props.response}}
+        >
+      <ResponseInformation response={this.props.response} /> 
+        
+          "false"
+    </Link> */}
+ 
+        <Link to={{ pathname: this.props.path, response: this.props.response }}
+        >
+          <div>Hiiiiiiiiiiikkkkkkkkkkk</div>
+          </Link> 
           <ResponseInformation response={this.props.response} />
-        ) : (
+
           <ResponseChart response={this.props.response} />
-        )}
+
       </div>
     );
   }

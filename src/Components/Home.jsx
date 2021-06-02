@@ -1,4 +1,5 @@
 import React from "react";
+import Dragndrop from "./Dragndrop";
 import PictureUpload from "./PictureUpload";
 // import { Link } from "react-router-dom";
 
@@ -107,6 +108,7 @@ class Home extends React.Component {
         </div>
         {/* insert component here */}
         <PictureUpload />
+        <Dragndrop/>
       </div>
     );
   }

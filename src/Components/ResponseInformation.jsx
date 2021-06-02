@@ -1,6 +1,7 @@
 import CategoryInfo from "./CategoryInfo";
 
 const ResponseInformation = (props) => {
+  console.log(props.response)
   const infoAray = [];
   const topicAray = [];
 
@@ -16,6 +17,7 @@ const ResponseInformation = (props) => {
   }
   return (
     <div>
+      <h1>HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII</h1>
       {topicAray.map((topic, i) => {
         return (
           <div key={topic}>
