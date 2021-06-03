@@ -2,7 +2,6 @@ import CategoryInfo from "./CategoryInfo";
 import ResponseChart from "./ResponseChart";
 
 const ResponseInformation = (props) => {
-  let test = 3;
   let response = {};
   if (!props.location) response = props.response;
   else response = props.location.response;
