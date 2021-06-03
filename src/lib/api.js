@@ -32,16 +32,16 @@ export async function createPicture(picture) {
       console.log(response.data);
       // const data = await response.json();
       // console.log(data);
-      if (response.data.Object) {
-        console.log("the first one is correct response.data.Object");
-        return response.data.Object;
-      }
-      if (response.data.Object) {
-        console.log("the second one is correct response.data.object");
-        return response.data.object;
-      }
+      // if (response.data.Object) {
+      //   console.log("the first one is correct response.data.Object");
+      //   return response.data.Object;
+      // }
+      // if (response.data.Object) {
+      //   console.log("the second one is correct response.data.object");
+      //   return response.data.object;
+      // }
       if (response.data) {
-        console.log("the third one is correct response.data");
+        // console.log("the third one is correct response.data");
         return response.data;
       }
       console.log("no match to any of the data sets");

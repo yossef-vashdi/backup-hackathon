@@ -2,6 +2,7 @@ import CategoryInfo from "./CategoryInfo";
 import ResponseChart from "./ResponseChart";
 
 const ResponseInformation = (props) => {
+  let test = 3;
   let response = {};
   if (!props.location) response = props.response;
   else response = props.location.response;
@@ -38,7 +39,10 @@ const ResponseInformation = (props) => {
                       </div>
                       <div className="me-5 ">
                         <img
-                          src="images/mocks/3.jpg"
+                          src={`images/mocks/${topic.slice(
+                            0,
+                            topic.indexOf(" ")
+                          )}.jpg`}
                           alt="mock img"
                           className="rounded"
                           style={{ maxWidth: 50 }}
@@ -61,7 +65,10 @@ const ResponseInformation = (props) => {
                   <div className="col-md-2 ms-5">
                     <img
                       alt="mock img"
-                      src="images/mocks/3.jpg"
+                      src={`images/mocks/${topic.slice(
+                        0,
+                        topic.indexOf(" ")
+                      )}.jpg`}
                       className="rounded"
                       height="300"
                     />

@@ -45,7 +45,7 @@ class Home extends React.Component {
                       expand our feedback method to include more aspects as well
                       as giving you the opportunity to share your creation and
                       recieve feedback from other users, professional and
-                      amateurs alike
+                      amateurs alike.
                     </p>
                   )}
                 </div>
@@ -108,7 +108,7 @@ class Home extends React.Component {
         </div>
         {/* insert component here */}
         <PictureUpload />
-        <Dragndrop/>
+        <Dragndrop />
       </div>
     );
   }
