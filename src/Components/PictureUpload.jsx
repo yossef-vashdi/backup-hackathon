@@ -3,6 +3,10 @@ import { useState } from "react";
 import Modal from "react-modal";
 import { createPicture } from "../lib/api";
 import ResponseItem from "./ResponseItem";
+import { useDropzone } from "react-dropzone"
+import "./Dragndrop.css"
+
+
 // import { Link } from "react-router-dom";
 // const testing = {
 //   drawings: 0.8,
@@ -15,11 +19,33 @@ import ResponseItem from "./ResponseItem";
 const PictureUpload = () => {
   const [showValidationError, setShowValidationError] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [picture, setPicture] = useState();
+  // const [picture, setPicture] = useState();
   // const [picturesData, setPicturesData] = useState([]);
   const [response, setResponse] = useState(); // yossi added
   const [isLoading, setIsLoading] = useState(false);
 
+  const [files, setFiles] = useState([])
+
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: "image/*",
+    onDrop: (acceptedFiles) => {
+      setFiles(
+        acceptedFiles.map((file) =>
+          Object.assign(file, {
+            preview: URL.createObjectURL(file),
+          })
+        )
+      )
+    },
+  })
+
+  const images = files.map((file) => (
+    <div key={file.name}>
+      <div>
+        <img src={file.preview} style={{ width: "100px" }} alt="preview" />
+      </div>
+    </div>
+  ))
 
   // async function addNewPicture(picture) {
   //   try {
@@ -44,20 +70,21 @@ const PictureUpload = () => {
     setShowValidationError(false);
   }
 
-  function uploadPicture(file) {
-    console.log(file);
-    setPicture(file);
-  }
+  // function uploadPicture(file) {
+  //   console.log(file);
+  //   setPicture(file);
+  // }
 
   async function handleFormSubmit(event) {
+    setResponse();
     event.preventDefault();
     setIsLoading(true)
-    if (picture) {
+    if (files) {
       try {
         setShowValidationError(false);
         // await addNewPicture(picture);
         // yossi changes
-        const data = await createPicture(picture);
+        const data = await createPicture(files[0]);
         setResponse(data);
         //till here
         setIsLoading(false)
@@ -85,17 +112,24 @@ const PictureUpload = () => {
             </h1>
             <div className="row mb-3 ">
               <div className="">
-                <div className=" input-group mb-1">
+                {/* <div className=" input-group mb-1">
                   <input
                     type="file"
                     className="form-control"
                     onChange={(e) => uploadPicture(e.target.files[0])}
                     id="inputGroupFile02"
                   />
-                </div>
+                </div> */}
               </div>
             </div>
             <div>
+              <div className="mb-5">
+                <div {...getRootProps()} className="drop-zone">
+                  <input {...getInputProps()}/>
+                  <div>{images}</div>
+                 { !files[0] && <p>Click here or drop files to upload</p>}
+                </div>
+              </div>
               {showValidationError && (
                 <div
                   className="d-flex justify-content-center alert alert-danger mt-1 alert-dismissible fade show"

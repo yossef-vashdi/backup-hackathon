@@ -24,7 +24,7 @@ const ResponseInformation = (props) => {
   return (
     <div>
       {!props.location ? (
-        <div className="card mb-3 border-0" width="">
+        <div className="card mb-3 " width="">
           <div className="row g-0  d-flex justify-content-between align-items-center">
             <div className="col m-5">
               <ResponseChart response={response} />
@@ -42,7 +42,7 @@ const ResponseInformation = (props) => {
                           src={`images/mocks/${topic.slice(
                             0,
                             topic.indexOf(" ")
-                          )}.jpg`}
+                            )}.jpg`}
                           alt="mock img"
                           className="rounded"
                           style={{ maxWidth: 50 }}
@@ -52,6 +52,7 @@ const ResponseInformation = (props) => {
                     </div>
                   );
                 })}
+                <button className=" fw-bold btn  btn-outline-dark rounded-pill">Click Here For More Info</button>
               </div>
             </div>
           </div>
@@ -83,7 +84,7 @@ const ResponseInformation = (props) => {
               </div>
             );
           })}
-          <div>
+          <div className="ms-5"   style={{ maxWidth: 1100 }}>
             <ResponseChart response={response} />
           </div>
         </div>

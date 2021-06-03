@@ -18,9 +18,9 @@
     /* font-size: 20px; */
     cursor: pointer;
     color: #212529;
-    border: 4px dashed #212529;
+    border: 2px dashed #212529;
     border-radius: 10px;
-    background-color:#cccccc ;
+    background-color:#f0f0f0 ;
   }
   
   .drop-zone--over {

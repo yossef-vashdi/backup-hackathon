@@ -1,5 +1,5 @@
 import React from "react";
-import Dragndrop from "./Dragndrop";
+// import Dragndrop from "./Dragndrop";
 import PictureUpload from "./PictureUpload";
 // import { Link } from "react-router-dom";
 
@@ -34,20 +34,9 @@ class Home extends React.Component {
                   please share with us, and we will tell you{" "}
                 </p>
                 <div>
-                  <p onClick={() => this.howItWorks()}>
+                  <p className="fw-bold btn btn-sm btn-outline-dark rounded-pill" onClick={() => this.howItWorks()}>
                     -- press here to hear more about our feedback --
                   </p>
-                  {this.state.expand && (
-                    <p>
-                      our server will analyze your creation (AI) and will
-                      estimate it's match to different categories (drawings,
-                      engraving, iconography, painting, sculpture). we inted to
-                      expand our feedback method to include more aspects as well
-                      as giving you the opportunity to share your creation and
-                      recieve feedback from other users, professional and
-                      amateurs alike.
-                    </p>
-                  )}
                 </div>
               </div>
 
@@ -61,13 +50,27 @@ class Home extends React.Component {
               </div>
             </div>
           </div>
+          {this.state.expand && (
+            <p>
+              our server will analyze your creation (AI) and will
+              estimate it's match to different categories (drawings,
+              engraving, iconography, painting, sculpture). we inted to
+              expand our feedback method to include more aspects as well
+              as giving you the opportunity to share your creation and
+              recieve feedback from other users, professional and
+              amateurs alike.
+            </p>
+          )}
           <div className="d-flex justify-content-center ">
             <a className="mx-4 nav-link text-white" href="#p">
               <button
-                className="btn btn-dark rounded-pill mt-1  p-3"
+                className="btn btn-dark rounded-pill mt-1 btn-lg  p-4"
                 type="submit"
               >
-                To Upload picture
+                To Upload Picture
+                <span class="material-icons ms-2">
+                get_app
+                </span>
               </button>
             </a>
           </div>
@@ -108,7 +111,7 @@ class Home extends React.Component {
         </div>
         {/* insert component here */}
         <PictureUpload />
-        <Dragndrop />
+        {/* <Dragndrop /> */}
       </div>
     );
   }
