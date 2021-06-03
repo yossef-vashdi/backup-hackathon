@@ -129,15 +129,6 @@ const PictureUpload = () => {
                   <div>{images}</div>
                  { !files[0] && <p>Click here or drop files to upload</p>}
 
-              {isLoading && <div class="spinner-grow text-warning  mx-5" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>}
-              {isLoading && <div class="spinner-grow text-danger  mx-5" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>}
-              {isLoading && <div class="spinner-grow text-success  mx-5" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>}
                 </div>
               </div>
               {showValidationError && (
@@ -162,7 +153,19 @@ const PictureUpload = () => {
                 >
                   Upload
                 </button>
+
               </div>
+              <div className="d-flex justify-content-center">
+            {isLoading && <div class="spinner-grow text-warning mt-3 mx-5" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>}
+            {isLoading && <div class="spinner-grow text-danger mt-3  mx-5" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>}
+            {isLoading && <div class="spinner-grow text-success mt-3  mx-5" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>}
+            </div>
             </div>
           </form>
         </div>
