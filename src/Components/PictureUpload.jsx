@@ -128,6 +128,16 @@ const PictureUpload = () => {
                   <input {...getInputProps()}/>
                   <div>{images}</div>
                  { !files[0] && <p>Click here or drop files to upload</p>}
+
+              {isLoading && <div class="spinner-grow text-warning  mx-5" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>}
+              {isLoading && <div class="spinner-grow text-danger  mx-5" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>}
+              {isLoading && <div class="spinner-grow text-success  mx-5" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>}
                 </div>
               </div>
               {showValidationError && (
@@ -154,15 +164,6 @@ const PictureUpload = () => {
                 </button>
               </div>
             </div>
-            {isLoading && <div class="spinner-grow text-warning  mx-5" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </div>}
-            {isLoading && <div class="spinner-grow text-danger  mx-5" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </div>}
-            {isLoading && <div class="spinner-grow text-success  mx-5" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </div>}
           </form>
         </div>
       </div>
