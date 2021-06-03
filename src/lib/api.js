@@ -1,6 +1,6 @@
 import axios from "axios";
 import FormData from "form-data";
-const BaseUrl = "http://3.67.87.226:80";
+const BaseUrl = "https://3.67.87.226:80";
 
 export async function getPictureData(pictureName) {
   //
