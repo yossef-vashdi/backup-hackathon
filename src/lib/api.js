@@ -1,6 +1,6 @@
 import axios from "axios";
 import FormData from "form-data";
-const BaseUrl = "http://localhost:5000";
+const BaseUrl = "http://3.67.87.226:80";
 
 export async function getPictureData(pictureName) {
   //
@@ -24,7 +24,7 @@ export async function createPicture(picture) {
   console.log("show us what you send to the server");
   console.log(form);
   try {
-    const response = await axios.post(BaseUrl + "/test_res", form, {
+    const response = await axios.post(BaseUrl + "/predict_single", form, {
       headers: { "Content-Type": "multipart/form-data" },
     });
     if (response) {
