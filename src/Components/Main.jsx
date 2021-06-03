@@ -6,7 +6,7 @@ import Tiles from "./Tiles/Tiles";
 import LiveAuctioneers from "./LiveAuctioneers/LiveAuctioneers";
 import Blog from "./blog/Blog";
 import ResponseInformation from "./ResponseInformation";
-import ResponseChart from "./ResponseChart";
+// import ResponseChart from "./ResponseChart";
 
 const Main = () => {
   return (
