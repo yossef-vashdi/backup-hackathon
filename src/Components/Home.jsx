@@ -68,7 +68,7 @@ class Home extends React.Component {
                 type="submit"
               >
                 To Upload Picture
-                <span class="material-icons ms-2">
+                <span class="material-icons ms-3">
                 get_app
                 </span>
               </button>
