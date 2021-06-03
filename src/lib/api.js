@@ -74,22 +74,22 @@ export async function signup(
 }
 
 const response = [
-  // {
-  //   drawings: 0.8,
-  //   engraving: 0.5,
-  //   iconography: 0.3,
-  //   painting: 0.1,
-  //   sculpture: 0.2,
-  // },
+  {
+    drawings: 0.8,
+    engraving: 0.5,
+    iconography: 0.3,
+    painting: 0.1,
+    sculpture: 0.2,
+  },
   {
     painting: 0.89,
     sculpture: 0.98,
   },
-  // {
-  //   engraving: 0.7,
-  //   iconography: 0.9,
-  //   painting: 0.1,
-  // },
+  {
+    engraving: 0.7,
+    iconography: 0.9,
+    painting: 0.1,
+  },
 ];
 
 const jsonMock2 = [
