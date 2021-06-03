@@ -22,17 +22,56 @@ const ResponseInformation = (props) => {
   }
   return (
     <div>
-      <h1>HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII</h1>
-      {topicAray.map((topic, i) => {
-        return (
-          <div key={topic}>
-            <h2>{topic}</h2>
-            <p>{infoAray[i]}</p>
+      {!props.location ? <div className="card mb-3 border-0" width="">
+        <div className="row g-0  d-flex justify-content-between align-items-center">
+          <div className="col m-5">
+            <ResponseChart response={response} />
           </div>
-        );
-      })}
-      <ResponseChart response={response} />
+          <div className="col">
+            <div className="card-body">
+              {topicAray.map((topic, i) => {
+                return (
+                  <div className="d-flex justify-content-end m-2" key={topic}>
+                    <div>
+                      <h4 className="card-title me-3">{topic}</h4>
+                    </div>
+                    <div className="me-5 ">
+                      <img src="images/mocks/3.jpg" className="rounded" style={{ maxWidth: 50 }} />
+                    </div>
+                    {/* {props.location && <p>{infoAray[i]}</p>} */}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div> :
+        <div >
+          {topicAray.map((topic, i) => {
+            return (
+              <div className="card mb-3 border-0"  >
+                <div className="row g-0">
+                  <div className="col-md-2 ms-5">
+                    <img src="images/mocks/3.jpg" className="rounded"  height="300"   />
+                  </div>
+                  <div className="col-md-8">
+                    <div className="card-body" key={topic}>
+                      <h2 className="card-title">{topic}</h2>
+                      <p className="card-text">{infoAray[i]}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+          <div >
+            <ResponseChart response={response} />
+          </div>
+        </div>
+      }
     </div>
   );
 };
 export default ResponseInformation;
+
+

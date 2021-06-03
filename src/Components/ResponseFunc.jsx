@@ -7,10 +7,9 @@ const ResponseFunc = (props) => {
   console.log(props);
   return (
     <div>
-      <Link to={{ pathname: props.path, response: props.response }}>
-        <div>Hiiiiiiiiiiikkkkkkkkkkk</div>
+      <Link className="text-decoration-none text-dark" to={{ pathname: props.path, response: props.response }}>
+        <ResponseInformation response={props.response} />
       </Link>
-      <ResponseInformation response={props.response} />
     </div>
   );
 };

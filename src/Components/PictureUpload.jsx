@@ -18,6 +18,8 @@ const PictureUpload = () => {
   const [picture, setPicture] = useState();
   // const [picturesData, setPicturesData] = useState([]);
   const [response, setResponse] = useState(); // yossi added
+  const [isLoading, setIsLoading] = useState(false);
+
 
   // async function addNewPicture(picture) {
   //   try {
@@ -49,6 +51,7 @@ const PictureUpload = () => {
 
   async function handleFormSubmit(event) {
     event.preventDefault();
+    setIsLoading(true)
     if (picture) {
       try {
         setShowValidationError(false);
@@ -57,11 +60,14 @@ const PictureUpload = () => {
         const data = await createPicture(picture);
         setResponse(data);
         //till here
+        setIsLoading(false)
         setModalIsOpen(true);
       } catch (err) {
         alert(err);
+        setIsLoading(false)
       }
     } else {
+      setIsLoading(false)
       setShowValidationError(true);
     }
   }
@@ -114,10 +120,19 @@ const PictureUpload = () => {
                 </button>
               </div>
             </div>
+            {isLoading && <div class="spinner-grow text-warning  mx-5" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>}
+            {isLoading && <div class="spinner-grow text-danger  mx-5" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>}
+            {isLoading && <div class="spinner-grow text-success  mx-5" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>}
           </form>
         </div>
       </div>
-      {response && <ResponseItem response={response}  path="/details" />}
+      {response && <ResponseItem response={response} path="/details" />}
       {/* <ul className=" list-unstyled">
       <ResponseItem response={response} path="/details" />
       <ul className=" list-unstyled">
